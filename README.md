@@ -12,7 +12,7 @@ teachnoble machine을 활용해서 올바르게 분리수거되었는지 판별�
 
 ## 개발 환경
 언어 : Node js, html/css<br>
-툴 : Visual Studio
+툴 : Visual Studio Code
 
 ## 기능
 1. 12가지 종류의 쓰레기들을 분리수거 하는 법을 설명
