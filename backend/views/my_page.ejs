@@ -42,13 +42,16 @@
     <div class="wrap">
       <div class="content" id="left_box">
         <div id="_tree">
-          <button type="submit" onclick="zzz()">불러오기</button>
-        </div>
-        <div id="_point">
-          <%=point%>
+          <!-- <button type="submit">불러오기</button> -->
         </div>
       </div>
       <div class="content" id="right_box">
+        <div class="point_desc">새싹포인트 : </div>
+        <div id="_point">
+          <%=point%>
+        </div>
+        <div class="point_desc">🌱</div>
+        <br><br>
         <span id="user_name">
           <%=name%> 님
         </span><br>
@@ -75,16 +78,12 @@
     </div>
   </div>
   <script>
-    function zzz(){
-      console.log("안녕");
-      console.log("클릭");
+    // function showTree(){
       let _point = document.querySelector("#_point");
       let _tree = document.querySelector("#_tree");
     
-      console.log("클릭");
-
-      if (Number(_point) <= 0) {
-    
+      if (Number(_point.innerHTML) <= 0) {
+          // 포인트가 0 점 이하일 때
       }
     
       let img = document.createElement("img");
@@ -116,10 +115,10 @@
         img.setAttribute("src", "step08" + ".gif");
         _tree.appendChild(img);
       } else{
-        img.setAttribute("src", "step09" + ".gif")
-        _tree.appendChild(img);
+        // img.setAttribute("src", "step09" + ".gif")
+        // _tree.appendChild(img);
       }
-    }
+    // }
   </script>
   <script type="text/javascript" src="login_confirm.js"></script>
 </body>
