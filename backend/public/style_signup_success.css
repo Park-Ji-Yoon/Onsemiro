@@ -70,7 +70,7 @@ a:hover{
   justify-content: center;
 }
 
-#login_success_box{
+#signup_success_box{
   width: 50%;
   height: 100vh;
   display: flex;
