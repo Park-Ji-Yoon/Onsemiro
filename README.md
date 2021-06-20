@@ -12,6 +12,7 @@ teachnoble machine을 활용해서 올바르게 분리수거되었는지 판별�
 
 ## 개발 환경
 언어 : Node js, html/css<br>
+DB : Mongo DB<
 툴 : Visual Studio Code
 
 ## 기능
