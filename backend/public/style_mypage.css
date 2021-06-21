@@ -87,6 +87,19 @@ a:hover{
   padding-left: 10%;
 }
 
+#swc_table{
+  width: 360px;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  width: 100px;
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+  text-align: center;
+}
+
 #user_name{
   font-size: 2rem;
   line-height: 5rem;
