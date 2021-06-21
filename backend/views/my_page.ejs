@@ -51,6 +51,18 @@
           <%=point%>
         </div>
         <div class="point_desc">🌱</div>
+        <table id="swc_table">
+          <tr>
+            <td>캔🥫</td>
+            <td>플라스틱🍼</td>
+            <td>상자📦</td>
+          </tr>
+          <tr>
+            <td id="table_can"><%=can_point%></td>
+            <td id="table_plastic"><%=plastic_point%></td>
+            <td id="table_box"><%=box_point%></td>
+          </tr>
+        </table>
         <br><br>
         <span id="user_name">
           <%=name%> 님
@@ -82,15 +94,13 @@
       let _point = document.querySelector("#_point");
       let _tree = document.querySelector("#_tree");
     
-      if (Number(_point.innerHTML) <= 0) {
-          // 포인트가 0 점 이하일 때
-      }
-    
       let img = document.createElement("img");
 
       let num = parseInt(_point.innerHTML.trim());
 
-      if (0 < num && num <= 5) {
+      if(num <= 0){ 
+
+      }else if (0 < num && num <= 5) {
         img.setAttribute("src", "step01" + ".gif");
         _tree.appendChild(img);
       } else if (num <= 10) {
