@@ -11,6 +11,7 @@ const querystring = require('querystring');
 const url = require('url');
 const session = require('express-session');
 const path = require('path');
+const { query } = require("express");
 
 const router = express.Router();
 
@@ -78,7 +79,7 @@ app.post('/signup_process', function(req, res){
     "name": user.name,
     "email": user.email,
   });
-  res.redirect('/practice?' + query);
+  res.redirect('/signup_success?' + query);
 });
 
 // 회원가입 버튼 클릭 시 라우터
@@ -88,7 +89,7 @@ app.get('/signup', function(req, res) {
   });
 });
 
-app.post('/signup_success', function(req, res){
+app.get('/signup_success', function(req, res){
   var queryData = url.parse(req.url, true).query;
   return res.render('signup_success',{
     
@@ -169,10 +170,16 @@ app.get('/mypage', function(req, res) {
   User.findOne({email: user_email}, (err, data) => {
     user_name = data.name;
     user_point = data.point;
+    can_point = data.can_point;
+    plastic_point = data.plastic_point;
+    box_point = data.box_point;
     res.render('my_page', {
       name: user_name,
       email: user_email,
-      point: user_point
+      point: user_point,
+      can_point: can_point,
+      plastic_point: plastic_point,
+      box_point: box_point
     });
   });
 });
@@ -246,6 +253,34 @@ app.get('/point_up', function(req, res){
       console.log(data);
     }
   });
+
+  // 종류별 포인트 저장
+  let queryData = url.parse(req.url, true).query;
+  if(queryData.type == "can"){
+    User.update({email: current_login_user}, {$inc: {"can_point": 1}}, (err, data) => {
+      if(err){
+        console.log(err);
+      }else{
+        console.log(data);
+      }
+    });
+  }else if(queryData.type == "plastic"){
+    User.update({email: current_login_user}, {$inc: {"plastic_point": 1}}, (err, data) => {
+      if(err){
+        console.log(err);
+      }else{
+        console.log(data);
+      }
+    });
+  }else if(queryData.type == "box"){
+    User.update({email: current_login_user}, {$inc: {"box_point": 1}}, (err, data) => {
+      if(err){
+        console.log(err);
+      }else{
+        console.log(data);
+      }
+    });
+  }
   res.redirect('/point');
 });
 
