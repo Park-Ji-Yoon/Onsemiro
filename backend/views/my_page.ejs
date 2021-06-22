@@ -95,11 +95,19 @@
       let _tree = document.querySelector("#_tree");
     
       let img = document.createElement("img");
+      let noPoint = document.createElement("div");
 
       let num = parseInt(_point.innerHTML.trim());
 
       if(num <= 0){ 
-
+        noPoint.innerHTML = "포인트가 0점입니다😅<br>분리수거된 용품을 찍어 포인트를 쌓아보세요😊";
+        noPoint.style.width = 450 + "px";
+        noPoint.style.height = 600 + "px";
+        noPoint.style.fontSize = 32 + "px";
+        noPoint.style.textAlign = "center";
+        noPoint.style.paddingTop = 40 + "%";
+        noPoint.style.boxSizing = "border-box";
+        _tree.appendChild(noPoint);
       }else if (0 < num && num <= 5) {
         img.setAttribute("src", "step01" + ".gif");
         _tree.appendChild(img);
