@@ -119,6 +119,28 @@ a:hover{
   box-sizing: border-box;
 }
 
+.test_login_btn{
+  width: 100%;
+  border-radius: 0.4rem;
+  background-color:#ffffff;
+  color: #2A7A78;
+  outline: none;
+  border: 1px solid #2A7A78;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 3.8% 0;
+  transition-duration: 0.4s;
+  box-sizing: border-box;
+}
+
+.test_login_btn:hover{
+  width: 100%;
+  background-color: #2A7A78;
+  color:#ffffff;
+  border: 1px solid #2A7A78;
+  box-sizing: border-box;
+}
+
 .desc{
   font-size: 0.9rem;
   color: #787878;
