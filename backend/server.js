@@ -303,30 +303,47 @@ app.get('/point_up', function(req, res){
   // 종류별 포인트 저장
   let queryData = url.parse(req.url, true).query;
   if(queryData.type == "can"){
-    User.update({email: current_login_user}, {$inc: {"can_point": 1}}, (err, data) => {
-      if(err){
-        console.log(err);
-      }else{
-        console.log(data);
-      }
-    });
+    res.redirect('/point_up_can');
   }else if(queryData.type == "plastic"){
-    User.update({email: current_login_user}, {$inc: {"plastic_point": 1}}, (err, data) => {
-      if(err){
-        console.log(err);
-      }else{
-        console.log(data);
-      }
-    });
+    res.redirect('/point_up_plastic');
   }else if(queryData.type == "box"){
-    User.update({email: current_login_user}, {$inc: {"box_point": 1}}, (err, data) => {
-      if(err){
-        console.log(err);
-      }else{
-        console.log(data);
-      }
-    });
+    res.redirect('/point_up_box');
   }
+});
+
+app.get("/point_up_can", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"can_point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
+  res.redirect('/point');
+});
+
+app.get("/point_up_plastic", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"plastic_point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
+  res.redirect('/point');
+});
+
+app.get("/point_up_box", function(req, res){
+  let current_login_user = req.cookies['email'];
+  User.update({email: current_login_user}, {$inc: {"box_point": 1}}, (err, data) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+    }
+  });
   res.redirect('/point');
 });
 
